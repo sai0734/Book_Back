@@ -34,6 +34,13 @@ public class UserReadBookController {
 
     }
 
+    @PostMapping("/detail")
+    public ResponseEntity<ResponseDto<UserReadBookDto>> getDetail(@RequestBody(required = false) UserReadBookDto dto) {
+
+        return ResponseEntity.ok(userReadService.getUserReadDetail(dto));
+
+    }
+
     @PostMapping("/change/memo")
     public ResponseEntity<ResponseDto<UserReadBookDto>> changeMemo(@RequestBody(required = false) UserReadBookDto dto) {
 

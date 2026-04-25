@@ -44,6 +44,22 @@ public class UserReadService {
 
     }
 
+    public ResponseDto<UserReadBookDto> getUserReadDetail(UserReadBookDto dto) {
+        if(dto.getUserNo() == null) {
+            return ResponseDto.success(null);
+        }
+
+        if(dto.getIsbn() == null) {
+            return ResponseDto.success(null);
+        }
+
+        UserReadBook detailBook = repository.findByUserNoAndIsbn(dto.getUserNo(),dto.getIsbn());
+
+        return ResponseDto.success(mapper.toDto(detailBook));
+
+
+    }
+
     /**
      * 고객별 구독중인 책 가져오기
      * @param dto
