@@ -17,6 +17,8 @@ public class UserDto {
 
     private String name;
 
+    private String email;
+
      //0: 정상가입 ,1 :휴면 , 9:탈퇴
     private String status;
 

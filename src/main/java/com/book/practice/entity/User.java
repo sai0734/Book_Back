@@ -29,6 +29,9 @@ public class User {
     @Column(nullable = false , name="NAME")
     private String name;
 
+    @Column(nullable = false , name="EMAIL")
+    private String email;
+
     @Column(nullable = false, name="STATUS")  //0: 정상가입 ,1 :휴면 , 9:탈퇴
     private String status;
 

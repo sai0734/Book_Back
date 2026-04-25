@@ -1,8 +1,10 @@
 package com.book.practice.controller;
 
+import com.book.practice.dto.EmailAuthDto;
 import com.book.practice.dto.ResponseDto;
 import com.book.practice.dto.UserDto;
 import com.book.practice.dto.UserInsertDto;
+import com.book.practice.service.MailService;
 import com.book.practice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
+    private final MailService mailService;
 
     @PostMapping("/checkId")
     public ResponseEntity<ResponseDto<Map<String,Object>>> checkUserIdDup(@RequestBody(required = false)UserInsertDto dto) {
@@ -45,5 +48,17 @@ public class UserController {
     public ResponseEntity<ResponseDto<UserDto>> changeUser(@RequestBody(required = false)UserInsertDto dto) {
 
         return ResponseEntity.ok(userService.changeUser(dto));
+    }
+
+    @PostMapping("/sendEmail")
+    public ResponseEntity sendEmail(@RequestBody(required = false)UserInsertDto dto) {
+
+        return ResponseEntity.ok(mailService.send(dto.getEmail()));
+    }
+
+    @PostMapping("/confirmAuthCode")
+    public ResponseEntity confirmAuthCode(@RequestBody(required = false) EmailAuthDto dto) {
+
+        return ResponseEntity.ok(mailService.confirmAuthCode(dto));
     }
 }

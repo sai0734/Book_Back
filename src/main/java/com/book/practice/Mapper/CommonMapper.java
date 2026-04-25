@@ -1,8 +1,10 @@
 package com.book.practice.Mapper;
 
+import com.book.practice.dto.EmailAuthDto;
 import com.book.practice.dto.UserDto;
 import com.book.practice.dto.UserInsertDto;
 import com.book.practice.dto.UserReadBookDto;
+import com.book.practice.entity.EmailAuth;
 import com.book.practice.entity.User;
 import com.book.practice.entity.UserReadBook;
 import org.mapstruct.Mapper;
@@ -16,6 +18,8 @@ public interface CommonMapper {
     UserReadBookDto toDto(UserReadBook userReadBook);
 
     UserReadBook toEntity(UserReadBookDto dto);
+
+    EmailAuthDto toDto(EmailAuth emailAuth);
 
     User toEntity(UserInsertDto userDto);
 

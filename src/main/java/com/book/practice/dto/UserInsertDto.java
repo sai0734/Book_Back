@@ -14,5 +14,6 @@ public class UserInsertDto {
     private String password;
     private String name;
     private String status;
+    private String email;
     private String confirmPassword;
 }

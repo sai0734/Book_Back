@@ -5,6 +5,16 @@ spring:
     url: jdbc:mysql://localhost:13306/myapp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: root
+  mail:
+    host: smtp.naver.com
+    port: 587
+    username: "sinkijun890@naver.com"
+    password: "WGSNTQXVWN5X"
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.trust: smtp.naver.com
+      mail.debug: true
 
   jpa:
     hibernate:

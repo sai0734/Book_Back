@@ -34,8 +34,14 @@ public class UserService {
 
     public ResponseDto<UserDto> saveUser(UserInsertDto dto) {
 
+        String yn = repository.existsById(dto.getId()) ? "N" : "Y";
+
         if(!StringUtils.hasText(dto.getId())) {
             return ResponseDto.fail("ID를 입력하지 않았습니다.");
+        }
+
+        if("N".equals(yn)) {
+            return ResponseDto.fail("이미 존재하는 ID 입니다.");
         }
 
         if(!dto.getPassword().equals(dto.getConfirmPassword())) {
