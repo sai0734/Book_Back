@@ -79,7 +79,7 @@ public class UserService {
             return ResponseDto.fail("존재하지 않는 계정입니다.");
         }
 
-        if(dto.getOldPassword() != null || dto.getOldPassword().equals(loginUser.getPassword())) {
+        if(dto.getOldPassword() != null || !dto.getOldPassword().equals(loginUser.getPassword())) {
             return ResponseDto.fail("비밀번호 인증에 실패하였습니다.");
         } else {
             if(dto.getPassword().equals(dto.getConfirmPassword())) {
