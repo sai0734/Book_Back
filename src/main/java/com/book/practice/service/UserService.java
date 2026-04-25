@@ -34,7 +34,7 @@ public class UserService {
 
     public ResponseDto<UserDto> saveUser(UserInsertDto dto) {
 
-        if(StringUtils.hasText(dto.getId())) {
+        if(!StringUtils.hasText(dto.getId())) {
             return ResponseDto.fail("ID를 입력하지 않았습니다.");
         }
 
@@ -42,7 +42,7 @@ public class UserService {
             return ResponseDto.fail("입력한 비밀번호가 서로 다릅니다.");
         }
 
-        if(StringUtils.hasText(dto.getName())) {
+        if(!StringUtils.hasText(dto.getName())) {
             return ResponseDto.fail("이름이 필수입니다.");
         }
 
